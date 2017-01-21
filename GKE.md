@@ -14,13 +14,36 @@ gcloud container clusters create "demo" \
   --enable-cloud-monitoring
 ```
 
-
 ## Connect to your cluster
 
 ```
 gcloud container clusters get-credentials demo \
     --zone asia-east1-b --project sunny-573
 ```
+
+## Containerize
+
+You need to containerize your project into docker...
+
+File: Dockerfile
+
+```
+From node
+
+ADD ./web /app
+WORKDIR /app
+
+CMD ["npm","start"]
+```
+
+(put the Docker file with the web folder)
+
+```
+docker build -t peihsinsu/simpleweb .
+docker push peihsinsu/simpleweb
+```
+
+PS: Please change the image path to your own path...
 
 ## Prepare deployment file
 
