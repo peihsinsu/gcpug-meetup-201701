@@ -5,4 +5,4 @@ metadata:
 spec:
   backend:
     serviceName: web-server
-    servicePort: 80
+    servicePort: 3000
